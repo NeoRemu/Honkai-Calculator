@@ -3,12 +3,12 @@ import java.util.Random;
 public class MarkovChainSimulation {
 
     
-    private static final double BASE_DAMAGE = 100.0;       
-    private static final double STACK_BONUS = 0.2;         
-    private static final int MAX_STACKS = 5;               
-    private static final double TRIGGER_PROBABILITY = 0.3;
-    private static final int ATTACK_ROUNDS = 10;           
-    private static final int SIMULATION_RUNS = 100000;     
+    private static final double basic_damage = 100.0;       
+    private static final double stack_bonous = 0.2;         
+    private static final int max_stacks = 5;               
+    private static final double trigger_probabailiy = 0.3;
+    private static final int attack_rounds = 10;           
+    private static final int simulation_runs = 100000;     
 
     public static void main(String[] args) {
         double[][] transitionMatrix = buildTransitionMatrix(MAX_STACKS, TRIGGER_PROBABILITY);
@@ -63,11 +63,11 @@ public class MarkovChainSimulation {
         
         System.out.println("Final Stack Distribution:");
         for (int i = 0; i <= MAX_STACKS; i++) {
-            System.out.printf("%d stacks: %.2f%%\n", i, (finalStackDistribution[i] / (double) SIMULATION_RUNS) * 100);
+            System.out.printf("stacks: ", i, (finalStackDistribution[i] / (double) SIMULATION_RUNS) * 100);
         }
 
         
         double expectedDamage = totalDamage / SIMULATION_RUNS;
-        System.out.printf("\nExpected Critical Damage (ECD): %.2f\n", expectedDamage);
+        System.out.printf("Expected Critical Damage (ECD): ", expectedDamage);
     }
 }
